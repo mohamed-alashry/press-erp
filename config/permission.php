@@ -158,4 +158,18 @@ return [
 
         'store' => 'default',
     ],
+
+    /**
+     * Excluded routes from CheckPermission middleware
+     */
+    'excluded_routes' => [
+        'admin.auth.getLogin',
+        'admin.auth.postLogin',
+        'admin.auth.logout',
+        'admin.dashboard.home',
+        'admin.permissions.update',
+
+        // Exclude Custom Routes
+
+    ],
 ];
