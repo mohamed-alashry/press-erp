@@ -9,7 +9,7 @@
                             *</span></label>
                     <div class="col-md-9">
                         <select name="client_id" id="client_id"
-                            class="form-control {{ $errors->first('desc') ? 'is-invalid' : '' }}">
+                            class="form-control {{ $errors->first('client_id') ? 'is-invalid' : '' }}">
                             <option value="">{{ __('lang.client') }}</option>
                             @foreach ($clients as $client)
                                 <option value="{{ $client->id }}"

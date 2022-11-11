@@ -115,4 +115,13 @@ return [
     'order' => 'الطلب',
     'total_price' => 'الإجمالي',
 
+    /**
+     * ClientPayments
+     */
+    'client_payments' => 'دفعات العملاء',
+    'Client_payment' => 'دفعة العميل',
+    'amount' => 'المبلغ',
+    'date' => 'التاريخ',
+    'exceed_credit_amount' => 'المبلغ المدفوع يتجاوز مبلغ المديونية الإجمالي :total',
+
 ];

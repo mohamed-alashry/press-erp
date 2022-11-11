@@ -8,6 +8,7 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ClientPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,11 @@ Route::prefix('admin')
              * Orders Routes
              */
             Route::resource('orders', OrderController::class);
+
+            /**
+             * ClientPayments Routes
+             */
+            Route::resource('clientPayments', ClientPaymentController::class);
 
             /**
              * Roles/Permissions Routes

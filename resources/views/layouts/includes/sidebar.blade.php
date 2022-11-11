@@ -33,7 +33,7 @@
             @endcanany
 
             {{-- Clients Links --}}
-            @canany(['view colors', 'view clients', 'view orders'])
+            @canany(['view colors', 'view clients', 'view orders', 'view clientPayments'])
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link nav-dropdown-toggle" href="#">
                         <i class="nav-icon icon-people"></i> {{ __('lang.clients') }}</a>
@@ -55,6 +55,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.orders.index') }}">
                                     <i class="nav-icon icon-people"></i> {{ __('lang.orders') }}</a>
+                            </li>
+                        @endcan
+                        @can('view clientPayments')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.clientPayments.index') }}">
+                                    <i class="nav-icon icon-people"></i> {{ __('lang.client_payments') }}</a>
                             </li>
                         @endcan
                     </ul>
