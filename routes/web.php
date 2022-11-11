@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\AdminsController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -49,6 +50,11 @@ Route::prefix('admin')
              * Colors Routes
              */
             Route::resource('colors', ColorController::class);
+
+            /**
+             * Clients Routes
+             */
+            Route::resource('clients', ClientController::class);
 
             /**
              * Roles/Permissions Routes
