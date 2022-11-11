@@ -119,7 +119,7 @@ return [
      * ClientPayments
      */
     'client_payments' => 'دفعات العملاء',
-    'Client_payment' => 'دفعة العميل',
+    'client_payment' => 'دفعة العميل',
     'amount' => 'المبلغ',
     'date' => 'التاريخ',
     'exceed_credit_amount' => 'المبلغ المدفوع يتجاوز مبلغ المديونية الإجمالي :total',
@@ -137,5 +137,11 @@ return [
     'supply' => 'التوريد',
     'base_price' => 'المجموع',
     'discount' => 'الخصم',
+
+    /**
+     * SupplierPayments
+     */
+    'supplier_payments' => 'دفعات الموردين',
+    'supplier_payment' => 'دفعة المورد',
 
 ];

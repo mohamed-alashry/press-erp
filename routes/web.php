@@ -11,6 +11,7 @@ use App\Http\Controllers\SupplyController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClientPaymentController;
+use App\Http\Controllers\SupplierPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +80,11 @@ Route::prefix('admin')
              * Supplies Routes
              */
             Route::resource('supplies', SupplyController::class);
+
+            /**
+             * SupplierPayments Routes
+             */
+            Route::resource('supplierPayments', SupplierPaymentController::class);
 
             /**
              * Roles/Permissions Routes

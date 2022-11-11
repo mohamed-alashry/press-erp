@@ -13,17 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('supplies', function (Blueprint $table) {
+        Schema::create('supplier_payments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('supplier_id');
-            $table->string('name');
+            $table->decimal('amount');
             $table->date('date');
-            $table->decimal('price');
-            $table->unsignedInteger('quantity');
-            $table->decimal('base_price')->nullable();
-            $table->decimal('discount');
-            $table->decimal('total_price')->nullable();
-            $table->string('notes')->nullable();
             $table->timestamps();
 
             $table->foreign('supplier_id')->references('id')->on('suppliers')->cascadeOnDelete();
@@ -37,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('supplies');
+        Schema::dropIfExists('supplier_payments');
     }
 };

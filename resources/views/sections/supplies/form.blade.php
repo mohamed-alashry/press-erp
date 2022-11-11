@@ -4,21 +4,21 @@
         <div class="col-lg-9">
             @if (!isset($supply))
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="client_id">{{ __('lang.client') }}<span
+                    <label class="col-md-3 col-form-label" for="supplier_id">{{ __('lang.supplier') }}<span
                             class="text-danger">
                             *</span></label>
                     <div class="col-md-9">
-                        <select name="client_id" id="client_id"
-                            class="form-control {{ $errors->first('client_id') ? 'is-invalid' : '' }}">
-                            <option value="">{{ __('lang.client') }}</option>
-                            @foreach ($clients as $client)
-                                <option value="{{ $client->id }}"
-                                    {{ old('client_id', isset($supply) ? $supply->client_id : '') == $client->id ? 'selected' : '' }}>
-                                    {{ $client->name }}</option>
+                        <select name="supplier_id" id="supplier_id"
+                            class="form-control {{ $errors->first('supplier_id') ? 'is-invalid' : '' }}">
+                            <option value="">{{ __('lang.supplier') }}</option>
+                            @foreach ($suppliers as $supplier)
+                                <option value="{{ $supplier->id }}"
+                                    {{ old('supplier_id', isset($supply) ? $supply->supplier_id : '') == $supplier->id ? 'selected' : '' }}>
+                                    {{ $supplier->name }}</option>
                             @endforeach
                         </select>
-                        @if ($errors->first('client_id'))
-                            <div class="invalid-feedback">{{ $errors->first('client_id') }}</div>
+                        @if ($errors->first('supplier_id'))
+                            <div class="invalid-feedback">{{ $errors->first('supplier_id') }}</div>
                         @endif
                     </div>
                 </div>

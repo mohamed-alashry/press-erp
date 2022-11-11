@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SupplyRequest extends FormRequest
+class SupplierPaymentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +25,8 @@ class SupplyRequest extends FormRequest
     {
         $rules = [
             'supplier_id' => 'required',
-            'name' => 'required',
+            'amount' => 'required|numeric',
             'date' => 'required',
-            'price' => 'required|numeric',
-            'quantity' => 'required|numeric',
-            'discount' => 'required|numeric',
-            'notes' => 'nullable|string',
         ];
 
         if ($this->isMethod('put')) {

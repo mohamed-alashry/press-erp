@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Color;
 use App\Models\Supply;
-use App\Models\Client;
+use App\Models\Supplier;
 use App\Http\Requests\SupplyRequest;
 
 class SupplyController extends Controller
@@ -35,9 +34,9 @@ class SupplyController extends Controller
      */
     public function create()
     {
-        $clients = Client::get();
+        $suppliers = Supplier::get();
 
-        return view('sections.supplies.create', compact('clients'));
+        return view('sections.supplies.create', compact('suppliers'));
     }
 
     /**
@@ -63,7 +62,7 @@ class SupplyController extends Controller
      */
     public function show(Supply $supply)
     {
-        $supply->load('client');
+        $supply->load('supplier');
 
         return view('sections.supplies.show', compact('supply'));
     }

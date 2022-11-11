@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Color;
 use App\Models\Order;
 use App\Models\Client;
 use App\Models\ClientPayment;

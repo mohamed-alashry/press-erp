@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Supply extends Model
+class SupplierPayment extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'supplies';
+    protected $table = 'supplier_payments';
 
     /**
      * The attributes that are mass assignable.
@@ -21,23 +21,17 @@ class Supply extends Model
      */
     protected $fillable = [
         'supplier_id',
-        'name',
+        'amount',
         'date',
-        'price',
-        'quantity',
-        'base_price',
-        'discount',
-        'total_price',
-        'notes',
     ];
 
     /**
-     * Get the client that owns the Order
+     * Get the supplier that owns the Order
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function client(): BelongsTo
+    public function supplier(): BelongsTo
     {
-        return $this->belongsTo(Client::class, 'client_id');
+        return $this->belongsTo(Client::class, 'supplier_id');
     }
 }
