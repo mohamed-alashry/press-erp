@@ -130,4 +130,12 @@ return [
     'suppliers' => 'الموردين',
     'supplier' => 'المورد',
 
+    /**
+     * Supplies
+     */
+    'supplies' => 'التوريدات',
+    'supply' => 'التوريد',
+    'base_price' => 'المجموع',
+    'discount' => 'الخصم',
+
 ];

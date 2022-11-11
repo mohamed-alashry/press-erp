@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SupplyController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClientPaymentController;
@@ -73,6 +74,11 @@ Route::prefix('admin')
              * Suppliers Routes
              */
             Route::resource('suppliers', SupplierController::class);
+
+            /**
+             * Supplies Routes
+             */
+            Route::resource('supplies', SupplyController::class);
 
             /**
              * Roles/Permissions Routes
