@@ -97,7 +97,7 @@
             @endcanany
 
             {{-- Financial Links --}}
-            @canany(['view expenses', 'view partners', 'view supplierPayments'])
+            @canany(['view expenses', 'view partners', 'view partnerPayments'])
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link nav-dropdown-toggle" href="#">
                         <i class="nav-icon icon-people"></i> {{ __('lang.financial') }}</a>
@@ -115,10 +115,10 @@
                                     <i class="nav-icon icon-people"></i> {{ __('lang.partners') }}</a>
                             </li>
                         @endcan
-                        @can('view supplierPayments')
+                        @can('view partnerPayments')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.supplierPayments.index') }}">
-                                    <i class="nav-icon icon-people"></i> {{ __('lang.supplier_payments') }}</a>
+                                <a class="nav-link" href="{{ route('admin.partnerPayments.index') }}">
+                                    <i class="nav-icon icon-people"></i> {{ __('lang.partner_payments') }}</a>
                             </li>
                         @endcan
                     </ul>

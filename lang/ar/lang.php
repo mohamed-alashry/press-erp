@@ -157,4 +157,10 @@ return [
     'partners' => 'الشركاء',
     'partner' => 'الشريك',
 
+    /**
+     * PartnerPayments
+     */
+    'partner_payments' => 'دفعات الشركاء',
+    'partner_payment' => 'دفعة الشريك',
+
 ];
