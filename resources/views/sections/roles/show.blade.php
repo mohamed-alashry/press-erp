@@ -4,43 +4,43 @@
     <main class="main">
         <!-- Breadcrumb-->
         <ol class="breadcrumb">
-            <li class="breadcrumb-item">{{ __('messages.home') }}</li>
+            <li class="breadcrumb-item">{{ __('lang.home') }}</li>
             <li class="breadcrumb-item">
-                <a href="{{ route('admin.roles.index') }}">{{ __('messages.permissions') }}</a>
+                <a href="{{ route('admin.roles.index') }}">{{ __('lang.permissions') }}</a>
             </li>
-            <li class="breadcrumb-item  active">{{ __('messages.show') }}</li>
+            <li class="breadcrumb-item  active">{{ __('lang.show') }}</li>
         </ol>
         <div class="container-fluid">
             <div class="animated fadeIn">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> {{ __('messages.show') }}
+                        <i class="fa fa-align-justify"></i> {{ __('lang.show') }}
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-12 col-md-2"><strong>{{ __('messages.id') }}</strong></div>
+                                    <div class="col-12 col-md-2"><strong>{{ __('lang.id') }}</strong></div>
                                     <div class="col-12 col-md-10">{{ $role->id }}</div>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-12 col-md-2"><strong>{{ __('messages.name') }}</strong></div>
+                                    <div class="col-12 col-md-2"><strong>{{ __('lang.name') }}</strong></div>
                                     <div class="col-12 col-md-10">{{ $role->name }}</div>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <strong class="col-md-3">{{ __('messages.permissions') }}<span
+                                    <strong class="col-md-3">{{ __('lang.permissions') }}<span
                                             class="text-danger"></span></strong>
                                     @foreach ($allActions as $action)
-                                        <strong class="col-md-1 px-0">{{ __('messages.' . $action) }}</strong>
+                                        <strong class="col-md-1 px-0">{{ __('lang.' . $action) }}</strong>
                                     @endforeach
                                 </div>
                                 @foreach ($allPages as $page)
                                     <div class="row">
-                                        <label class="col-md-3">{{ __('messages.' . $page) }}</label>
+                                        <label class="col-md-3">{{ __('lang.' . $page) }}</label>
                                         @foreach ($allActions as $action)
                                             @php
                                                 $permissionName = $action . ' ' . $page;

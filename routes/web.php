@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ColorController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\DashboardController;
@@ -43,6 +44,11 @@ Route::prefix('admin')
              * Admins Routes
              */
             Route::resource('admins', AdminsController::class);
+
+            /**
+             * Colors Routes
+             */
+            Route::resource('colors', ColorController::class);
 
             /**
              * Roles/Permissions Routes

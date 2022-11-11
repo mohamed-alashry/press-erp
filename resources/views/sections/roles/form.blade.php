@@ -3,11 +3,11 @@
     <div class="row">
         <div class="col-lg-9">
             <div class="form-group row">
-                <label class="col-md-3 col-form-label" for="name">{{ __('messages.name') }}<span class="text-danger">
+                <label class="col-md-3 col-form-label" for="name">{{ __('lang.name') }}<span class="text-danger">
                         *</span></label>
                 <div class="col-md-9">
                     <input class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}" id="name"
-                        type="text" name="name" placeholder="{{ __('messages.name') }}"
+                        type="text" name="name" placeholder="{{ __('lang.name') }}"
                         value="{{ old('name', isset($role) ? $role->name : '') }}">
                     @if ($errors->first('name'))
                         <div class="invalid-feedback">{{ $errors->first('name') }}</div>
@@ -15,19 +15,19 @@
                 </div>
             </div>
             <div class="form-group row">
-                <strong class="col-md-3">{{ __('messages.permissions') }}<span class="text-danger"> *</span>
+                <strong class="col-md-3">{{ __('lang.permissions') }}<span class="text-danger"> *</span>
                     @if ($errors->first('permissions'))
                         <span class="text-danger">{{ $errors->first('permissions') }}</span>
                     @endif
                 </strong>
                 @foreach ($allActions as $action)
-                    <strong class="col-md-1 px-0">{{ __('messages.' . $action) }}</strong>
+                    <strong class="col-md-1 px-0">{{ __('lang.' . $action) }}</strong>
                 @endforeach
-                <strong class="col-md-1">{{ __('messages.all') }}</strong>
+                <strong class="col-md-1">{{ __('lang.all') }}</strong>
             </div>
             @foreach ($allPages as $page)
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label">{{ __('messages.' . $page) }}</label>
+                    <label class="col-md-3 col-form-label">{{ __('lang.' . $page) }}</label>
                     @foreach ($allActions as $action)
                         @php
                             $permissionName = $action . ' ' . $page;

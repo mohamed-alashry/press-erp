@@ -4,17 +4,17 @@
     <main class="main">
         <!-- Breadcrumb-->
         <ol class="breadcrumb">
-            <li class="breadcrumb-item">{{ __('messages.home') }}</li>
+            <li class="breadcrumb-item">{{ __('lang.home') }}</li>
             <li class="breadcrumb-item">
-                <a href="{{ route('admin.admins.index') }}">{{ __('messages.admins') }}</a>
+                <a href="{{ route('admin.admins.index') }}">{{ __('lang.admins') }}</a>
             </li>
-            <li class="breadcrumb-item  active">{{ __('messages.edit') }}</li>
+            <li class="breadcrumb-item  active">{{ __('lang.edit') }}</li>
         </ol>
         <div class="container-fluid">
             <div class="animated fadeIn">
                 <div class="card">
                     <div class="card-header">
-                        <strong>{{ __('messages.edit') }}</strong>
+                        <strong>{{ __('lang.edit') }}</strong>
                     </div>
                     <form class="form-horizontal" action="{{ route('admin.admins.update', $admin->id) }}" method="post"
                         enctype="multipart/form-data">

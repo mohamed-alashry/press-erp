@@ -18,7 +18,7 @@
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ __('messages.deltaTitle') }} | {{ __('messages.adminPanel') }}</title>
+    <title>{{ __('lang.deltaTitle') }} | {{ __('lang.adminPanel') }}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
     <!-- Icons-->

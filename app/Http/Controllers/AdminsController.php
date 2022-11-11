@@ -56,7 +56,7 @@ class AdminsController extends Controller
         $admin = Admin::create($request->all());
         $admin->syncRoles(request('roles'));
 
-        return redirect()->route('admin.admins.index')->with('status', __('messages.adminCreated'));
+        return redirect()->route('admin.admins.index')->with('status', __('lang.adminCreated'));
     }
 
     /**
@@ -100,7 +100,7 @@ class AdminsController extends Controller
         $admin->update($request->all());
         $admin->syncRoles(request('roles'));
 
-        return redirect()->route('admin.admins.index')->with('status', __('messages.adminUpdated'));
+        return redirect()->route('admin.admins.index')->with('status', __('lang.adminUpdated'));
     }
 
     /**
@@ -113,6 +113,6 @@ class AdminsController extends Controller
     {
         $admin->delete();
 
-        return back()->with('status', __('messages.adminDeleted'));
+        return back()->with('status', __('lang.adminDeleted'));
     }
 }

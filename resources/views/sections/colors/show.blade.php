@@ -6,7 +6,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">{{ __('lang.home') }}</li>
             <li class="breadcrumb-item">
-                <a href="{{ route('admin.admins.index') }}">{{ __('lang.admins') }}</a>
+                <a href="{{ route('admin.colors.index') }}">{{ __('lang.colors') }}</a>
             </li>
             <li class="breadcrumb-item  active">{{ __('lang.show') }}</li>
         </ol>
@@ -21,44 +21,31 @@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-12 col-md-2"><strong>{{ __('lang.id') }}</strong></div>
-                                    <div class="col-12 col-md-10">{{ $admin->id }}</div>
+                                    <div class="col-12 col-md-10">{{ $color->id }}</div>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-12 col-md-2"><strong>{{ __('lang.name') }}</strong></div>
-                                    <div class="col-12 col-md-10">{{ $admin->name }}</div>
+                                    <div class="col-12 col-md-10">{{ $color->name }}</div>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-12 col-md-2"><strong>{{ __('lang.email') }}</strong></div>
-                                    <div class="col-12 col-md-10">{{ $admin->email }}</div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-12 col-md-2"><strong>{{ __('lang.position') }}</strong></div>
-                                    <div class="col-12 col-md-10">{{ $admin->position }}</div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-12 col-md-2"><strong>{{ __('lang.status') }}</strong></div>
-                                    <div class="col-12 col-md-10">{{ __('lang.status_' . $admin->status) }}
-                                    </div>
+                                    <div class="col-12 col-md-2"><strong>{{ __('lang.price') }}</strong></div>
+                                    <div class="col-12 col-md-10">{{ $color->price }}</div>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="card-footer">
-                        @can('view admins')
-                            <a href="{{ route('admin.admins.index') }}" class="btn btn-sm btn-secondary">
+                        @can('view colors')
+                            <a href="{{ route('admin.colors.index') }}" class="btn btn-sm btn-secondary">
                                 <i class="fa fa-arrow-left"></i>
                             </a>
                         @endcan
-                        @can('update admins')
-                            <a href="{{ route('admin.admins.edit', $admin->id) }}" class="btn btn-sm btn-warning">
+                        @can('update colors')
+                            <a href="{{ route('admin.colors.edit', $color->id) }}" class="btn btn-sm btn-warning">
                                 <i class="fa fa-edit"></i>
                             </a>
                         @endcan

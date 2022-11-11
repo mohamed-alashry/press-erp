@@ -4,17 +4,17 @@
     <main class="main">
         <!-- Breadcrumb-->
         <ol class="breadcrumb">
-            <li class="breadcrumb-item">{{ __('messages.home') }}</li>
+            <li class="breadcrumb-item">{{ __('lang.home') }}</li>
             <li class="breadcrumb-item">
-                <a href="{{ route('admin.roles.index') }}">{{ __('messages.permissions') }}</a>
+                <a href="{{ route('admin.roles.index') }}">{{ __('lang.permissions') }}</a>
             </li>
-            <li class="breadcrumb-item  active">{{ __('messages.create') }}</li>
+            <li class="breadcrumb-item  active">{{ __('lang.create') }}</li>
         </ol>
         <div class="container-fluid">
             <div class="animated fadeIn">
                 <div class="card">
                     <div class="card-header">
-                        <strong>{{ __('messages.create') }}</strong>
+                        <strong>{{ __('lang.create') }}</strong>
                     </div>
                     <form class="form-horizontal" action="{{ route('admin.roles.store') }}" method="post"
                         enctype="multipart/form-data">

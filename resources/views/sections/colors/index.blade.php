@@ -5,7 +5,7 @@
         {{-- Breadcrumb Section --}}
         <ol class="breadcrumb">
             <li class="breadcrumb-item">{{ __('lang.home') }}</li>
-            <li class="breadcrumb-item  active">{{ __('lang.permissions') }}</li>
+            <li class="breadcrumb-item  active">{{ __('lang.colors') }}</li>
         </ol>
         <div class="container-fluid">
             <div class="animated fadeIn">
@@ -14,21 +14,19 @@
                 {{-- Search Section --}}
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-horizontal" action="{{ route('admin.roles.index') }}" method="get">
+                        <form class="form-horizontal" action="{{ route('admin.colors.index') }}" method="get">
                             <div class="row">
-                                <div class="form-group col-12 col-md-2 text-center">
-                                    @can('create roles')
-                                        <a href="{{ route('admin.roles.create') }}" class="btn btn-success btn-sm"><i
+                                <div class="form-group col-12 col-md-1 text-center">
+                                    @can('create colors')
+                                        <a href="{{ route('admin.colors.create') }}" class="btn btn-success btn-sm"><i
                                                 class="fa fa-plus"></i></a>
                                     @endcan
-                                    @hasrole('super_admin')
-                                        <a href="{{ route('admin.permissions.update') }}" class="btn btn-warning btn-sm">
-                                            <i class="fa fa-edit"></i>{{ __('lang.updatePermissions') }}</a>
-                                    @endhasrole
                                 </div>
-                                <div class="form-group col-12 col-md-8 text-center">
+                                <div class="form-group col-12 col-md-4 text-center">
                                     <input class="form-control" type="text" name="name"
                                         placeholder="{{ __('lang.name') }}" value="{{ old('name') }}">
+                                </div>
+                                <div class="form-group col-12 col-md-5 text-center">
                                 </div>
                                 <div class="form-group col-12 col-md-2 text-center">
                                     <button type="submit" class="btn btn-primary btn-sm"><i
@@ -47,47 +45,57 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.id') }}</strong></div>
-                            <div class="col-12 col-md-9 text-center"><strong>{{ __('lang.name') }}</strong></div>
+                            <div class="col-12 col-md-4 text-center"><strong>{{ __('lang.name') }}</strong></div>
+                            <div class="col-12 col-md-5 text-center"><strong>{{ __('lang.price') }}</strong></div>
                             <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.actions') }}</strong></div>
                         </div>
                     </div>
                 </div>
 
                 {{-- Data Section --}}
-                @forelse ($roles as $role)
+                @forelse ($colors as $color)
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-xs-12 col-md-1 text-md-center">
                                     <div class="row mb-2 mb-md-0">
-                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.id') }}</strong></div>
-                                        <div class="col-8 col-md-12">{{ $role->id }}</div>
+                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.id') }}</strong>
+                                        </div>
+                                        <div class="col-8 col-md-12">{{ $color->id }}</div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-9 text-md-center">
+                                <div class="col-12 col-md-4 text-md-center">
                                     <div class="row mb-2 mb-md-0">
                                         <div class="col-4 d-block d-md-none"><strong>{{ __('lang.name') }}</strong>
                                         </div>
-                                        <div class="col-8 col-md-12">{{ $role->name }}</div>
+                                        <div class="col-8 col-md-12">{{ $color->name }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-5 text-md-center">
+                                    <div class="row mb-2 mb-md-0">
+                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.price') }}</strong>
+                                        </div>
+                                        <div class="col-8 col-md-12">{{ $color->price }}</div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-2 text-md-center">
                                     <div class="row mb-2 mb-md-0">
-                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.actions') }}</strong>
+                                        <div class="col-4 d-block d-md-none">
+                                            <strong>{{ __('lang.actions') }}</strong>
                                         </div>
                                         <div class="col-8 col-md-12">
-                                            <form method="POST" action="{{ route('admin.roles.destroy', $role->id) }}">
+                                            <form method="POST" action="{{ route('admin.colors.destroy', $color->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                @can('view roles')
-                                                    <a href="{{ route('admin.roles.show', $role->id) }}"
+                                                @can('view colors')
+                                                    <a href="{{ route('admin.colors.show', $color->id) }}"
                                                         class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
                                                 @endcan
-                                                @can('update roles')
-                                                    <a href="{{ route('admin.roles.edit', $role->id) }}"
+                                                @can('update colors')
+                                                    <a href="{{ route('admin.colors.edit', $color->id) }}"
                                                         class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                 @endcan
-                                                @can('delete roles')
+                                                @can('delete colors')
                                                     <button type="submit" class="btn btn-danger btn-sm delete-form">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
@@ -107,7 +115,7 @@
                     </div>
                 @endforelse
 
-                {{ $roles->links() }}
+                {{ $colors->links() }}
             </div>
         </div>
     </main>

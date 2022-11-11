@@ -6,23 +6,24 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">{{ __('lang.home') }}</li>
             <li class="breadcrumb-item">
-                <a href="{{ route('admin.admins.index') }}">{{ __('lang.admins') }}</a>
+                <a href="{{ route('admin.colors.index') }}">{{ __('lang.colors') }}</a>
             </li>
-            <li class="breadcrumb-item  active">{{ __('lang.create') }}</li>
+            <li class="breadcrumb-item  active">{{ __('lang.edit') }}</li>
         </ol>
         <div class="container-fluid">
             <div class="animated fadeIn">
                 <div class="card">
                     <div class="card-header">
-                        <strong>{{ __('lang.create') }}</strong>
+                        <strong>{{ __('lang.edit') }}</strong>
                     </div>
-                    <form class="form-horizontal" action="{{ route('admin.admins.store') }}" method="post"
+                    <form class="form-horizontal" action="{{ route('admin.colors.update', $color->id) }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
-                        @include('sections.admins.form')
+                        @method('PUT')
+                        @include('sections.colors.form')
                         <div class="card-footer">
-                            @can('view admins')
-                                <a href="{{ route('admin.admins.index') }}" class="btn btn-sm btn-secondary">
+                            @can('view colors')
+                                <a href="{{ route('admin.colors.index') }}" class="btn btn-sm btn-secondary">
                                     <i class="fa fa-arrow-left"></i>
                                 </a>
                             @endcan

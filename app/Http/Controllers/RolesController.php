@@ -59,7 +59,7 @@ class RolesController extends Controller
         $role = Role::create(['guard_name' => 'admin', 'name' => request('name')]);
         $role->syncPermissions(request('permissions'));
 
-        return redirect()->route('admin.roles.index')->with('status', __('messages.createdDone'));
+        return redirect()->route('admin.roles.index')->with('status', __('lang.createdDone'));
     }
 
     /**
@@ -130,7 +130,7 @@ class RolesController extends Controller
         $role->update(['guard_name' => 'admin', 'name' => request('name')]);
         $role->syncPermissions(request('permissions'));
 
-        return redirect()->route('admin.roles.index')->with('status', __('messages.updatedDone'));
+        return redirect()->route('admin.roles.index')->with('status', __('lang.updatedDone'));
     }
 
     /**
@@ -149,7 +149,7 @@ class RolesController extends Controller
 
         $role->delete();
 
-        return back()->with('status', __('messages.deletedDone'));
+        return back()->with('status', __('lang.deletedDone'));
     }
 
     /**
@@ -228,6 +228,6 @@ class RolesController extends Controller
             }
         }
 
-        return back()->with('status', __('messages.permissionsUpdated'));
+        return back()->with('status', __('lang.permissionsUpdated'));
     }
 }

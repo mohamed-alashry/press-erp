@@ -57,7 +57,7 @@
                     </div>
                     <div class="card p-4">
                         <div class="card-body">
-                            <h1>{{ __('messages.login') }}</h1>
+                            <h1>{{ __('lang.login') }}</h1>
 
                             @include('layouts.includes.messages')
 
@@ -70,7 +70,7 @@
                                         </span>
                                     </div>
                                     <input class="form-control {{ $errors->first('name') ? 'is-invalid' : '' }}"
-                                        name="name" type="text" placeholder="{{ __('messages.name') }}"
+                                        name="name" type="text" placeholder="{{ __('lang.name') }}"
                                         value="{{ old('name') }}">
                                     @if ($errors->first('name'))
                                         <div class="invalid-feedback">{{ $errors->first('name') }}</div>
@@ -83,7 +83,7 @@
                                         </span>
                                     </div>
                                     <input class="form-control {{ $errors->first('password') ? 'is-invalid' : '' }}"
-                                        type="password" name="password" placeholder="{{ __('messages.password') }}">
+                                        type="password" name="password" placeholder="{{ __('lang.password') }}">
                                     @if ($errors->first('password'))
                                         <div class="invalid-feedback">{{ $errors->first('password') }}</div>
                                     @endif
@@ -91,7 +91,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <button class="btn btn-primary px-4"
-                                            type="submit">{{ __('messages.login') }}</button>
+                                            type="submit">{{ __('lang.login') }}</button>
                                     </div>
                                 </div>
                             </form>

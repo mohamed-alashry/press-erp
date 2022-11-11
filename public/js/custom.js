@@ -17,7 +17,7 @@ $('.delete-form').click(function(e) {
 
     alertify.dialog('confirm')
       .set('title', '')
-      .set({transition:'zoom',message: 'Are you Sure!?'})
+      .set({transition:'zoom',message: 'هل أنت متأكد؟'})
       .set('onok', function(closeEvent){
           // Post the form
           $(e.target).closest('form').submit() // Post the surrounding form

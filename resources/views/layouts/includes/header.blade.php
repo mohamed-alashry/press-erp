@@ -29,17 +29,17 @@
             <a class="nav-link"
                 href="{{ str_replace(env('REDIRECT') . '/' . $locale, env('REDIRECT') . '/' . $NotLocale, url()->full()) }}">
                 <i class="icon-globe"></i>
-                {{ __('messages.' . $NotLocale . '-inverse') }}
+                {{ __('lang.' . $NotLocale . '-inverse') }}
             </a>
         </li>
         {{-- <li class="nav-item dropdown d-md-down-none">
       <a class="nav-link px-2" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <i class="fa fa-language"></i> {{ __('messages.'. $locale) }}</a>
+        <i class="fa fa-language"></i> {{ __('lang.'. $locale) }}</a>
       <div class="dropdown-menu {{ $dropdown }}">
 
         @foreach ($langs as $lang)
           <a class="dropdown-item" href="{{ str_replace(env('REDIRECT') .'/'. $locale, env('REDIRECT') .'/'. $lang->locale , url()->full()) }}">
-            {{ __('messages.'. $lang->locale) }}
+            {{ __('lang.'. $lang->locale) }}
           </a>
         @endforeach
       </div>
@@ -55,9 +55,9 @@
                     <strong>{{ auth()->user()->name }}</strong>
                 </div>
                 <a class="dropdown-item" href="{{ route('admin.admins.show', auth()->id()) }}">
-                    <i class="fa fa-user"></i> {{ __('messages.profile') }}</a>
+                    <i class="fa fa-user"></i> {{ __('lang.profile') }}</a>
                 <a class="dropdown-item" href="{{ route('admin.auth.logout') }}">
-                    <i class="fa fa-lock"></i> {{ __('messages.logout') }}</a>
+                    <i class="fa fa-lock"></i> {{ __('lang.logout') }}</a>
             </div>
         </li>
     </ul>

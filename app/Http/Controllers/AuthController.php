@@ -41,9 +41,9 @@ class AuthController extends Controller
                 if (auth()->guard('admin')->validate([
                     'name' => request('name'), 'password' => request('password'), 'status' => '0'
                 ])) {
-                    return back()->with('status_danger', __('messages.inactiveAccount'));
+                    return back()->with('status_danger', __('lang.inactiveAccount'));
                 }
-                return back()->with('status_danger', __('messages.wrongCredentials'));
+                return back()->with('status_danger', __('lang.wrongCredentials'));
             }
         }
     }
