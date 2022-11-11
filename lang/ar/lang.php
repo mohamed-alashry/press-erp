@@ -5,7 +5,7 @@ return [
      * General
      */
     'home' => 'الرئيسية',
-    'deltaTitle'    =>    'المتكامل',
+    'pressERPTitle'    =>    'المطابع',
     'adminPanel'    =>    'لوحة التحكم',
     'selectStatus' => 'أختر الحالة',
     'active' => 'نشط',
@@ -104,6 +104,15 @@ return [
      */
     'clients' => 'العملاء',
     'client' => 'العميل',
-    'phone' => 'الموبايل',
+    'desc' => 'الوصف',
+    'quantity' => 'الكمية',
+    'notes' => 'الملاحظات',
+
+    /**
+     * Orders
+     */
+    'orders' => 'الطلبات',
+    'order' => 'الطلب',
+    'total_price' => 'الإجمالي',
 
 ];

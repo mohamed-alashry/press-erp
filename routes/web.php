@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ColorController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\ClientController;
@@ -55,6 +56,11 @@ Route::prefix('admin')
              * Clients Routes
              */
             Route::resource('clients', ClientController::class);
+
+            /**
+             * Orders Routes
+             */
+            Route::resource('orders', OrderController::class);
 
             /**
              * Roles/Permissions Routes

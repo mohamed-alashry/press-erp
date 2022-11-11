@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <hr>
+            {{-- <hr>
             <h4>{{ __('lang.colors') }}</h4>
 
             @foreach ($colors as $color)
@@ -42,7 +42,7 @@
                             value="{{ old('colors.' . $color->id . '.price', $color->pivot ? $color->pivot->price : $color->price) }}">
                     </div>
                 </div>
-            @endforeach
+            @endforeach --}}
         </div>
     </div>
 </div>

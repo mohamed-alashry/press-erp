@@ -18,7 +18,7 @@
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ __('lang.deltaTitle') }} | {{ __('lang.adminPanel') }}</title>
+    <title>{{ __('lang.pressERPTitle') }} | {{ __('lang.adminPanel') }}</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
     <!-- Icons-->
@@ -79,6 +79,8 @@
         // Bootstrap ID
         gtag('config', 'UA-118965717-5');
     </script>
+
+    <livewire:styles />
 </head>
 
 <body class="app header-fixed  sidebar-md-show sidebar-fixed aside-menu-show">
@@ -114,6 +116,7 @@
 
     @yield('script')
 
+    <livewire:scripts />
 </body>
 
 </html>

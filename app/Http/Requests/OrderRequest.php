@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ClientRequest extends FormRequest
+class OrderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,18 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'name' => 'required',
-            'phone' => 'nullable|numeric',
-            // 'colors' => 'required|array',
-            // 'colors.*.price' => 'required|numeric',
+            'client_id' => 'required',
+            'desc' => 'required',
+            'quantity' => 'required|numeric',
+            'notes' => 'nullable|string',
+            'colors' => 'required|array',
+            'colors.*.quantity' => 'required|numeric',
+            'colors.*.price' => 'required|numeric',
         ];
+
+        if ($this->isMethod('put')) {
+            $rules['client_id'] = '';
+        }
 
         return $rules;
     }

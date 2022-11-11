@@ -5,7 +5,7 @@
         {{-- Breadcrumb Section --}}
         <ol class="breadcrumb">
             <li class="breadcrumb-item">{{ __('lang.home') }}</li>
-            <li class="breadcrumb-item  active">{{ __('lang.colors') }}</li>
+            <li class="breadcrumb-item  active">{{ __('lang.orders') }}</li>
         </ol>
         <div class="container-fluid">
             <div class="animated fadeIn">
@@ -14,11 +14,11 @@
                 {{-- Search Section --}}
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-horizontal" action="{{ route('admin.colors.index') }}" method="get">
+                        <form class="form-horizontal" action="{{ route('admin.orders.index') }}" method="get">
                             <div class="row">
                                 <div class="form-group col-12 col-md-1 text-center">
-                                    @can('create colors')
-                                        <a href="{{ route('admin.colors.create') }}" class="btn btn-success btn-sm"><i
+                                    @can('create orders')
+                                        <a href="{{ route('admin.orders.create') }}" class="btn btn-success btn-sm"><i
                                                 class="fa fa-plus"></i></a>
                                     @endcan
                                 </div>
@@ -45,15 +45,15 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.id') }}</strong></div>
-                            <div class="col-12 col-md-4 text-center"><strong>{{ __('lang.name') }}</strong></div>
-                            <div class="col-12 col-md-5 text-center"><strong>{{ __('lang.price') }}</strong></div>
+                            <div class="col-12 col-md-4 text-center"><strong>{{ __('lang.desc') }}</strong></div>
+                            <div class="col-12 col-md-5 text-center"><strong>{{ __('lang.total_price') }}</strong></div>
                             <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.actions') }}</strong></div>
                         </div>
                     </div>
                 </div>
 
                 {{-- Data Section --}}
-                @forelse ($colors as $color)
+                @forelse ($orders as $order)
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -61,21 +61,21 @@
                                     <div class="row mb-2 mb-md-0">
                                         <div class="col-4 d-block d-md-none"><strong>{{ __('lang.id') }}</strong>
                                         </div>
-                                        <div class="col-8 col-md-12">{{ $color->id }}</div>
+                                        <div class="col-8 col-md-12">{{ $order->id }}</div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 text-md-center">
                                     <div class="row mb-2 mb-md-0">
-                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.name') }}</strong>
+                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.desc') }}</strong>
                                         </div>
-                                        <div class="col-8 col-md-12">{{ $color->name }}</div>
+                                        <div class="col-8 col-md-12">{{ $order->desc }}</div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-5 text-md-center">
                                     <div class="row mb-2 mb-md-0">
-                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.price') }}</strong>
+                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.total_price') }}</strong>
                                         </div>
-                                        <div class="col-8 col-md-12">{{ $color->price }}</div>
+                                        <div class="col-8 col-md-12">{{ $order->total_price }}</div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-2 text-md-center">
@@ -84,22 +84,22 @@
                                             <strong>{{ __('lang.actions') }}</strong>
                                         </div>
                                         <div class="col-8 col-md-12">
-                                            <form method="POST" action="{{ route('admin.colors.destroy', $color->id) }}">
+                                            <form method="POST" action="{{ route('admin.orders.destroy', $order->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                @can('view colors')
-                                                    <a href="{{ route('admin.colors.show', $color->id) }}"
+                                                @can('view orders')
+                                                    <a href="{{ route('admin.orders.show', $order->id) }}"
                                                         class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>
                                                 @endcan
-                                                @can('update colors')
-                                                    <a href="{{ route('admin.colors.edit', $color->id) }}"
+                                                @can('update orders')
+                                                    <a href="{{ route('admin.orders.edit', $order->id) }}"
                                                         class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                 @endcan
-                                                {{-- @can('delete colors')
+                                                @can('delete orders')
                                                     <button type="submit" class="btn btn-danger btn-sm delete-form">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
-                                                @endcan --}}
+                                                @endcan
                                             </form>
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@
                     </div>
                 @endforelse
 
-                {{ $colors->links() }}
+                {{ $orders->links() }}
             </div>
         </div>
     </main>

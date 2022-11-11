@@ -93,7 +93,7 @@ class ColorController extends Controller
      */
     public function destroy(Color $color)
     {
-        $color->delete();
+        // $color->delete();
 
         return back()->with('status', __('lang.deleted'));
     }
