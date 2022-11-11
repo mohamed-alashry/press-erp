@@ -5,10 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Partner;
 use App\Models\PartnerPayment;
+use Illuminate\Support\Facades\DB;
+use App\Services\TransactionService;
 use App\Http\Requests\PartnerPaymentRequest;
 
 class PartnerPaymentController extends Controller
 {
+    private $transactionService;
+
+    public function __construct(TransactionService $transactionService)
+    {
+        $this->transactionService = $transactionService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +57,17 @@ class PartnerPaymentController extends Controller
      */
     public function store(PartnerPaymentRequest $request)
     {
-        $partnerPayment = PartnerPayment::create($request->all());
+        DB::beginTransaction();
+        try {
+            $partnerPayment = PartnerPayment::create($request->all());
+
+            $this->transactionService->saveTransaction($partnerPayment, $partnerPayment->amount, 'deduct', __('lang.partner_payments'));
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // throw $e;
+            return back()->withErrors(['status' => __('lang.exceed_safe_balance')])->withInput();
+        }
 
         return redirect()->route('admin.partnerPayments.index')->with('status', __('lang.created'));
     }

@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Expense extends Model
+class Safe extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'expenses';
+    protected $table = 'safes';
 
     /**
      * The attributes that are mass assignable.
@@ -19,16 +20,6 @@ class Expense extends Model
      * @var array
      */
     protected $fillable = [
-        'desc',
-        'amount',
-        'date',
+        'balance',
     ];
-
-    /**
-     * Get all of the transactions.
-     */
-    public function transactions()
-    {
-        return $this->morphMany(Transaction::class, 'transactionable');
-    }
 }

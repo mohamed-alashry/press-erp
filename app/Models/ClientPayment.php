@@ -34,4 +34,12 @@ class ClientPayment extends Model
     {
         return $this->belongsTo(Client::class, 'client_id');
     }
+
+    /**
+     * Get all of the transactions.
+     */
+    public function transactions()
+    {
+        return $this->morphMany(Transaction::class, 'transactionable');
+    }
 }

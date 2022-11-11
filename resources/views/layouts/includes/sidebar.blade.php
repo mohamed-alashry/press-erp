@@ -121,6 +121,12 @@
                                     <i class="nav-icon icon-people"></i> {{ __('lang.partner_payments') }}</a>
                             </li>
                         @endcan
+                        @can('view transactions')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.transactions.index') }}">
+                                    <i class="nav-icon icon-people"></i> {{ __('lang.safe') }}</a>
+                            </li>
+                        @endcan
                     </ul>
                 </li>
             @endcanany

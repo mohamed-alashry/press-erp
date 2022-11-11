@@ -12,6 +12,7 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ClientPaymentController;
 use App\Http\Controllers\PartnerPaymentController;
 use App\Http\Controllers\SupplierPaymentController;
@@ -103,6 +104,11 @@ Route::prefix('admin')
              * PartnerPayments Routes
              */
             Route::resource('partnerPayments', PartnerPaymentController::class);
+
+            /**
+             * Transactions Routes
+             */
+            Route::resource('transactions', TransactionController::class)->only(['index', 'show']);
 
             /**
              * Roles/Permissions Routes

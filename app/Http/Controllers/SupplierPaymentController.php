@@ -5,10 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Supply;
 use App\Models\Supplier;
 use App\Models\SupplierPayment;
+use Illuminate\Support\Facades\DB;
+use App\Services\TransactionService;
 use App\Http\Requests\SupplierPaymentRequest;
 
 class SupplierPaymentController extends Controller
 {
+    private $transactionService;
+
+    public function __construct(TransactionService $transactionService)
+    {
+        $this->transactionService = $transactionService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -48,13 +57,23 @@ class SupplierPaymentController extends Controller
      */
     public function store(SupplierPaymentRequest $request)
     {
-        $creditAmount = Supply::where('supplier_id', request('supplier_id'))->sum('total_price');
-        $paidAmount = SupplierPayment::where('supplier_id', request('supplier_id'))->sum('amount');
-        $totalAmount  = $paidAmount + request('amount');
-        if ($totalAmount <= $creditAmount) {
-            $supplierPayment = SupplierPayment::create($request->all());
-        } else {
-            return back()->withErrors(['status' => __('lang.exceed_credit_amount', ['total' => $creditAmount])])->withInput();
+        DB::beginTransaction();
+        try {
+            $creditAmount = Supply::where('supplier_id', request('supplier_id'))->sum('total_price');
+            $paidAmount = SupplierPayment::where('supplier_id', request('supplier_id'))->sum('amount');
+            $totalAmount  = $paidAmount + request('amount');
+            if ($totalAmount <= $creditAmount) {
+                $supplierPayment = SupplierPayment::create($request->all());
+
+                $this->transactionService->saveTransaction($supplierPayment, $supplierPayment->amount, 'deduct', __('lang.supplier_payments'));
+            } else {
+                return back()->withErrors(['status' => __('lang.exceed_credit_amount', ['total' => $creditAmount])])->withInput();
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // throw $e;
+            return back()->withErrors(['status' => __('lang.exceed_safe_balance')])->withInput();
         }
 
         return redirect()->route('admin.supplierPayments.index')->with('status', __('lang.created'));

@@ -34,4 +34,12 @@ class PartnerPayment extends Model
     {
         return $this->belongsTo(Partner::class, 'partner_id');
     }
+
+    /**
+     * Get all of the transactions.
+     */
+    public function transactions()
+    {
+        return $this->morphMany(Transaction::class, 'transactionable');
+    }
 }

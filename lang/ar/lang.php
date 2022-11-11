@@ -61,6 +61,7 @@ return [
     'homeText'        =>    'بيان الرئيسية',
     'complaintText'    =>    'نص صفحة الشكاوى',
     'suggestionText'    =>    'نص صفحة الاقتراحات',
+    '-'        =>    '___',
 
 
     /**
@@ -119,7 +120,7 @@ return [
      * ClientPayments
      */
     'client_payments' => 'دفعات العملاء',
-    'client_payment' => 'دفعة العميل',
+    'client_payment' => 'دفعة عميل',
     'amount' => 'المبلغ',
     'date' => 'التاريخ',
     'exceed_credit_amount' => 'المبلغ المدفوع يتجاوز مبلغ المديونية الإجمالي :total',
@@ -142,13 +143,13 @@ return [
      * SupplierPayments
      */
     'supplier_payments' => 'دفعات الموردين',
-    'supplier_payment' => 'دفعة المورد',
+    'supplier_payment' => 'دفعة مورد',
 
     /**
      * Expenses
      */
     'expenses' => 'المصروفات',
-    'expense' => 'المصروف',
+    'expense' => 'مصروف',
     'financial' => 'المالية',
 
     /**
@@ -161,6 +162,20 @@ return [
      * PartnerPayments
      */
     'partner_payments' => 'دفعات الشركاء',
-    'partner_payment' => 'دفعة الشريك',
+    'partner_payment' => 'دفعة شريك',
+
+    /**
+     * Transaction
+     */
+    'transactions' => 'المعاملات',
+    'transaction' => 'المعاملة',
+    'safe' => 'الخزنة',
+    'safe_balance' => 'رصيد الخزنة',
+    'prev_balance' => 'الرصيد السابق',
+    'current_balance' => 'الرصيد الحالي',
+    'add' => 'إضافة',
+    'deduct' => 'خصم',
+    'total' => 'الإجمالي',
+    'exceed_safe_balance' => 'لا يوجد رصيد كافي في الخزنة لإتمام العملية',
 
 ];

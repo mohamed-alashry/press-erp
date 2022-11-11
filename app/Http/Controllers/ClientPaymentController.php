@@ -5,10 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Client;
 use App\Models\ClientPayment;
+use Illuminate\Support\Facades\DB;
+use App\Services\TransactionService;
 use App\Http\Requests\ClientPaymentRequest;
 
 class ClientPaymentController extends Controller
 {
+    private $transactionService;
+
+    public function __construct(TransactionService $transactionService)
+    {
+        $this->transactionService = $transactionService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -48,13 +57,23 @@ class ClientPaymentController extends Controller
      */
     public function store(ClientPaymentRequest $request)
     {
-        $creditAmount = Order::where('client_id', request('client_id'))->sum('total_price');
-        $paidAmount = ClientPayment::where('client_id', request('client_id'))->sum('amount');
-        $totalAmount  = $paidAmount + request('amount');
-        if ($totalAmount <= $creditAmount) {
-            $clientPayment = ClientPayment::create($request->all());
-        } else {
-            return back()->withErrors(['status' => __('lang.exceed_credit_amount', ['total' => $creditAmount])])->withInput();
+        DB::beginTransaction();
+        try {
+            $creditAmount = Order::where('client_id', request('client_id'))->sum('total_price');
+            $paidAmount = ClientPayment::where('client_id', request('client_id'))->sum('amount');
+            $totalAmount  = $paidAmount + request('amount');
+            if ($totalAmount <= $creditAmount) {
+                $clientPayment = ClientPayment::create($request->all());
+
+                $this->transactionService->saveTransaction($clientPayment, $clientPayment->amount, 'add', __('lang.client_payments'));
+            } else {
+                return back()->withErrors(['status' => __('lang.exceed_credit_amount', ['total' => $creditAmount])])->withInput();
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // throw $e;
+            return back()->withErrors(['status' => __('lang.exceed_safe_balance')])->withInput();
         }
 
         return redirect()->route('admin.clientPayments.index')->with('status', __('lang.created'));
