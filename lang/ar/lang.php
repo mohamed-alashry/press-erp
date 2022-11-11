@@ -144,4 +144,11 @@ return [
     'supplier_payments' => 'دفعات الموردين',
     'supplier_payment' => 'دفعة المورد',
 
+    /**
+     * Expenses
+     */
+    'expenses' => 'المصروفات',
+    'expense' => 'المصروف',
+    'financial' => 'المالية',
+
 ];

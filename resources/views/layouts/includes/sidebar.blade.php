@@ -96,6 +96,35 @@
                 </li>
             @endcanany
 
+            {{-- Financial Links --}}
+            @canany(['view expenses', 'view supplies', 'view supplierPayments'])
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
+                        <i class="nav-icon icon-people"></i> {{ __('lang.financial') }}</a>
+                    <ul class="nav-dropdown-items">
+
+                        @can('view expenses')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.expenses.index') }}">
+                                    <i class="nav-icon icon-people"></i> {{ __('lang.expenses') }}</a>
+                            </li>
+                        @endcan
+                        @can('view supplies')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.supplies.index') }}">
+                                    <i class="nav-icon icon-people"></i> {{ __('lang.supplies') }}</a>
+                            </li>
+                        @endcan
+                        @can('view supplierPayments')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.supplierPayments.index') }}">
+                                    <i class="nav-icon icon-people"></i> {{ __('lang.supplier_payments') }}</a>
+                            </li>
+                        @endcan
+                    </ul>
+                </li>
+            @endcanany
+
 
         </ul>
     </nav>
