@@ -124,4 +124,10 @@ return [
     'date' => 'التاريخ',
     'exceed_credit_amount' => 'المبلغ المدفوع يتجاوز مبلغ المديونية الإجمالي :total',
 
+    /**
+     * Suppliers
+     */
+    'suppliers' => 'الموردين',
+    'supplier' => 'المورد',
+
 ];
