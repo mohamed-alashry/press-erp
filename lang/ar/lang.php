@@ -151,4 +151,10 @@ return [
     'expense' => 'المصروف',
     'financial' => 'المالية',
 
+    /**
+     * Partners
+     */
+    'partners' => 'الشركاء',
+    'partner' => 'الشريك',
+
 ];

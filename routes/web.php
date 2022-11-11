@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SupplyController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClientPaymentController;
@@ -91,6 +92,11 @@ Route::prefix('admin')
              * Expenses Routes
              */
             Route::resource('expenses', ExpenseController::class);
+
+            /**
+             * Partners Routes
+             */
+            Route::resource('partners', PartnerController::class);
 
             /**
              * Roles/Permissions Routes
