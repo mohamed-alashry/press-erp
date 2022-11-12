@@ -16,15 +16,27 @@ class SupplyController extends Controller
     public function index()
     {
         request()->flash();
-        $query = Supply::query();
+        $query = Supply::with('supplier');
 
+        if (request()->filled('supplier_id')) {
+            $query->where('supplier_id', request('supplier_id'));
+        }
         if (request()->filled('name')) {
             $query->where('name', 'like', '%' . request('name') . '%');
         }
+        if (request()->filled('from') && request()->filled('to')) {
+            $query->whereBetween('created_at', [request('from'), request('to')]);
+        }
 
-        $supplies = $query->paginate(10);
+        $priceSum = $query->sum('price');
+        $baseSum = $query->sum('base_price');
+        $discountSum = $query->sum('discount');
+        $totalSum = $query->sum('total_price');
+        $supplies = $query->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('sections.supplies.index', compact('supplies'));
+        $suppliers = Supplier::pluck('name', 'id');
+
+        return view('sections.supplies.index', compact('supplies', 'priceSum', 'baseSum', 'discountSum', 'totalSum', 'suppliers'));
     }
 
     /**

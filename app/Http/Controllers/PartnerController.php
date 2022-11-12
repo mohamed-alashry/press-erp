@@ -15,7 +15,7 @@ class PartnerController extends Controller
     public function index()
     {
         request()->flash();
-        $query = Partner::query();
+        $query = Partner::withSum('payments as debit_balance', 'amount');
 
         if (request()->filled('name')) {
             $query->where('name', 'like', '%' . request('name') . '%');

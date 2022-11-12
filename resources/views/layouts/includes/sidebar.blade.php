@@ -97,7 +97,7 @@
             @endcanany
 
             {{-- Financial Links --}}
-            @canany(['view expenses', 'view partners', 'view partnerPayments'])
+            @canany(['view expenses', 'view partners', 'view partnerPayments', 'view transactions'])
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link nav-dropdown-toggle" href="#">
                         <i class="nav-icon icon-people"></i> {{ __('lang.financial') }}</a>

@@ -22,11 +22,23 @@
                                                 class="fa fa-plus"></i></a>
                                     @endcan
                                 </div>
-                                <div class="form-group col-12 col-md-4 text-center">
+                                <div class="form-group col-12 col-md-2 text-center">
+                                    {!! Form::select('supplier_id', $suppliers, null, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('lang.supplier'),
+                                    ]) !!}
+                                </div>
+                                <div class="form-group col-12 col-md-2 text-center">
                                     <input class="form-control" type="text" name="name"
                                         placeholder="{{ __('lang.name') }}" value="{{ old('name') }}">
                                 </div>
-                                <div class="form-group col-12 col-md-5 text-center">
+                                <div class="form-group col-12 col-md-2 text-center">
+                                    {!! Form::date('from', null, ['class' => 'form-control', 'placeholder' => __('lang.from')]) !!}
+                                </div>
+                                <div class="form-group col-12 col-md-2 text-center">
+                                    {!! Form::date('to', null, ['class' => 'form-control', 'placeholder' => __('lang.to')]) !!}
+                                </div>
+                                <div class="form-group col-12 col-md-1 text-center">
                                 </div>
                                 <div class="form-group col-12 col-md-2 text-center">
                                     <button type="submit" class="btn btn-primary btn-sm"><i
@@ -45,6 +57,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.id') }}</strong></div>
+                            <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.supplier') }}</strong></div>
                             <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.name') }}</strong></div>
                             <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.date') }}</strong></div>
                             <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.price') }}</strong></div>
@@ -52,7 +65,7 @@
                             <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.base_price') }}</strong></div>
                             <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.discount') }}</strong></div>
                             <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.total_price') }}</strong></div>
-                            <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.actions') }}</strong></div>
+                            <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.actions') }}</strong></div>
                         </div>
                     </div>
                 </div>
@@ -67,6 +80,13 @@
                                         <div class="col-4 d-block d-md-none"><strong>{{ __('lang.id') }}</strong>
                                         </div>
                                         <div class="col-8 col-md-12">{{ $supply->id }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-2 text-md-center">
+                                    <div class="row mb-2 mb-md-0">
+                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.supplier') }}</strong>
+                                        </div>
+                                        <div class="col-8 col-md-12">{{ $supply->supplier->name }}</div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-2 text-md-center">
@@ -118,7 +138,7 @@
                                         <div class="col-8 col-md-12">{{ $supply->total_price }}</div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-2 text-md-center">
+                                <div class="col-12 col-md-1 text-md-center">
                                     <div class="row mb-2 mb-md-0">
                                         <div class="col-4 d-block d-md-none">
                                             <strong>{{ __('lang.actions') }}</strong>
@@ -155,6 +175,49 @@
                         </div>
                     </div>
                 @endforelse
+                <div class="card bg-secondary">
+                    <div class="card-body">
+                        <div class="row h5">
+                            <div class="col-xs-12 col-md-6 text-md-center">
+                                <div class="row mb-2 mb-md-0">
+                                    <div class="col-4 d-block d-md-none"><strong>{{ __('lang.total') }}</strong>
+                                    </div>
+                                    <div class="col-8 col-md-12">{{ __('lang.totals') }}</div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-1 text-md-center">
+                                <div class="row mb-2 mb-md-0">
+                                    <div class="col-4 d-block d-md-none"><strong>{{ __('lang.price') }}</strong>
+                                    </div>
+                                    <div class="col-8 col-md-12">{{ $priceSum }}</div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-1 text-md-center">
+                            </div>
+                            <div class="col-12 col-md-1 text-md-center">
+                                <div class="row mb-2 mb-md-0">
+                                    <div class="col-4 d-block d-md-none"><strong>{{ __('lang.base_price') }}</strong>
+                                    </div>
+                                    <div class="col-8 col-md-12">{{ $baseSum }}</div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-1 text-md-center">
+                                <div class="row mb-2 mb-md-0">
+                                    <div class="col-4 d-block d-md-none"><strong>{{ __('lang.discount') }}</strong>
+                                    </div>
+                                    <div class="col-8 col-md-12">{{ $discountSum }}</div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-1 text-md-center">
+                                <div class="row mb-2 mb-md-0">
+                                    <div class="col-4 d-block d-md-none"><strong>{{ __('lang.total_price') }}</strong>
+                                    </div>
+                                    <div class="col-8 col-md-12">{{ $totalSum }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 {{ $supplies->links() }}
             </div>

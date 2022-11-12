@@ -28,13 +28,19 @@ class SupplierPaymentController extends Controller
         request()->flash();
         $query = SupplierPayment::with('supplier');
 
-        if (request()->filled('name')) {
-            $query->where('name', 'like', '%' . request('name') . '%');
+        if (request()->filled('supplier_id')) {
+            $query->where('supplier_id', request('supplier_id'));
+        }
+        if (request()->filled('from') && request()->filled('to')) {
+            $query->whereBetween('date', [request('from'), request('to')]);
         }
 
-        $supplierPayments = $query->paginate(10);
+        $totalSum = $query->sum('amount');
+        $supplierPayments = $query->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('sections.supplier_payments.index', compact('supplierPayments'));
+        $suppliers = Supplier::pluck('name', 'id');
+
+        return view('sections.supplier_payments.index', compact('supplierPayments', 'totalSum', 'suppliers'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Partner extends Model
 {
@@ -22,4 +23,14 @@ class Partner extends Model
         'name',
         'phone',
     ];
+
+    /**
+     * Get all of the payments for the Client
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function payments(): HasMany
+    {
+        return $this->hasMany(PartnerPayment::class, 'partner_id');
+    }
 }

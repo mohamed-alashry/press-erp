@@ -28,13 +28,19 @@ class ClientPaymentController extends Controller
         request()->flash();
         $query = ClientPayment::with('client');
 
-        if (request()->filled('name')) {
-            $query->where('name', 'like', '%' . request('name') . '%');
+        if (request()->filled('client_id')) {
+            $query->where('client_id', request('client_id'));
+        }
+        if (request()->filled('from') && request()->filled('to')) {
+            $query->whereBetween('date', [request('from'), request('to')]);
         }
 
-        $clientPayments = $query->paginate(10);
+        $totalSum = $query->sum('amount');
+        $clientPayments = $query->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('sections.client_payments.index', compact('clientPayments'));
+        $clients = Client::pluck('name', 'id');
+
+        return view('sections.client_payments.index', compact('clientPayments', 'clients', 'totalSum'));
     }
 
     /**

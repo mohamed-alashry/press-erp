@@ -23,10 +23,18 @@
                                     @endcan
                                 </div>
                                 <div class="form-group col-12 col-md-4 text-center">
-                                    <input class="form-control" type="text" name="name"
-                                        placeholder="{{ __('lang.name') }}" value="{{ old('name') }}">
+                                    {!! Form::select('supplier_id', $suppliers, null, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('lang.supplier'),
+                                    ]) !!}
                                 </div>
-                                <div class="form-group col-12 col-md-5 text-center">
+                                <div class="form-group col-12 col-md-2 text-center">
+                                    {!! Form::date('from', null, ['class' => 'form-control', 'placeholder' => __('lang.from')]) !!}
+                                </div>
+                                <div class="form-group col-12 col-md-2 text-center">
+                                    {!! Form::date('to', null, ['class' => 'form-control', 'placeholder' => __('lang.to')]) !!}
+                                </div>
+                                <div class="form-group col-12 col-md-1 text-center">
                                 </div>
                                 <div class="form-group col-12 col-md-2 text-center">
                                     <button type="submit" class="btn btn-primary btn-sm"><i
@@ -123,6 +131,28 @@
                         </div>
                     </div>
                 @endforelse
+                <div class="card bg-secondary">
+                    <div class="card-body">
+                        <div class="row h5">
+                            <div class="col-xs-12 col-md-6 text-md-center">
+                                <div class="row mb-2 mb-md-0">
+                                    <div class="col-4 d-block d-md-none"><strong>{{ __('lang.total') }}</strong>
+                                    </div>
+                                    <div class="col-8 col-md-12">{{ __('lang.total') }}</div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 text-md-center">
+                                <div class="row mb-2 mb-md-0">
+                                    <div class="col-4 d-block d-md-none"><strong>{{ __('lang.total') }}</strong>
+                                    </div>
+                                    <div class="col-8 col-md-12">{{ $totalSum }}</div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-2 text-md-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 {{ $supplierPayments->links() }}
             </div>

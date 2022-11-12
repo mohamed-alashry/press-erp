@@ -28,13 +28,19 @@ class PartnerPaymentController extends Controller
         request()->flash();
         $query = PartnerPayment::with('partner');
 
-        if (request()->filled('name')) {
-            $query->where('name', 'like', '%' . request('name') . '%');
+        if (request()->filled('partner_id')) {
+            $query->where('partner_id', request('partner_id'));
+        }
+        if (request()->filled('from') && request()->filled('to')) {
+            $query->whereBetween('date', [request('from'), request('to')]);
         }
 
-        $partnerPayments = $query->paginate(10);
+        $totalSum = $query->sum('amount');
+        $partnerPayments = $query->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('sections.partner_payments.index', compact('partnerPayments'));
+        $partners = Partner::pluck('name', 'id');
+
+        return view('sections.partner_payments.index', compact('partnerPayments', 'totalSum', 'partners'));
     }
 
     /**

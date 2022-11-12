@@ -46,7 +46,8 @@
                         <div class="row">
                             <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.id') }}</strong></div>
                             <div class="col-12 col-md-4 text-center"><strong>{{ __('lang.name') }}</strong></div>
-                            <div class="col-12 col-md-5 text-center"><strong>{{ __('lang.phone') }}</strong></div>
+                            <div class="col-12 col-md-3 text-center"><strong>{{ __('lang.phone') }}</strong></div>
+                            <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.debit_balance') }}</strong></div>
                             <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.actions') }}</strong></div>
                         </div>
                     </div>
@@ -71,11 +72,19 @@
                                         <div class="col-8 col-md-12">{{ $partner->name }}</div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-5 text-md-center">
+                                <div class="col-12 col-md-3 text-md-center">
                                     <div class="row mb-2 mb-md-0">
                                         <div class="col-4 d-block d-md-none"><strong>{{ __('lang.phone') }}</strong>
                                         </div>
                                         <div class="col-8 col-md-12">{{ $partner->phone }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-2 text-md-center">
+                                    <div class="row mb-2 mb-md-0">
+                                        <div class="col-4 d-block d-md-none">
+                                            <strong>{{ __('lang.debit_balance') }}</strong>
+                                        </div>
+                                        <div class="col-8 col-md-12">{{ $partner->debit_balance }}</div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-2 text-md-center">

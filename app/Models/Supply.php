@@ -32,12 +32,12 @@ class Supply extends Model
     ];
 
     /**
-     * Get the client that owns the Order
+     * Get the supplier that owns the Order
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function client(): BelongsTo
+    public function supplier(): BelongsTo
     {
-        return $this->belongsTo(Client::class, 'client_id');
+        return $this->belongsTo(Client::class, 'supplier_id');
     }
 }

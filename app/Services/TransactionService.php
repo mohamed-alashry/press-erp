@@ -4,7 +4,6 @@ namespace App\Services;
 
 use Exception;
 use App\Models\Safe;
-use App\Models\Transaction;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 

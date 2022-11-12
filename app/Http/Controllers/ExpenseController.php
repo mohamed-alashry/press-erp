@@ -26,13 +26,17 @@ class ExpenseController extends Controller
         request()->flash();
         $query = Expense::query();
 
-        if (request()->filled('name')) {
-            $query->where('name', 'like', '%' . request('name') . '%');
+        if (request()->filled('desc')) {
+            $query->where('desc', 'like', '%' . request('desc') . '%');
+        }
+        if (request()->filled('from') && request()->filled('to')) {
+            $query->whereBetween('date', [request('from'), request('to')]);
         }
 
-        $expenses = $query->paginate(10);
+        $totalSum = $query->sum('amount');
+        $expenses = $query->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('sections.expenses.index', compact('expenses'));
+        return view('sections.expenses.index', compact('expenses', 'totalSum'));
     }
 
     /**

@@ -22,11 +22,18 @@
                                                 class="fa fa-plus"></i></a>
                                     @endcan
                                 </div>
-                                <div class="form-group col-12 col-md-4 text-center">
-                                    <input class="form-control" type="text" name="name"
-                                        placeholder="{{ __('lang.name') }}" value="{{ old('name') }}">
+                                <div class="form-group col-12 col-md-2 text-center">
+                                    {!! Form::select('client_id', $clients, null, ['class' => 'form-control', 'placeholder' => __('lang.client')]) !!}
                                 </div>
-                                <div class="form-group col-12 col-md-5 text-center">
+                                <div class="form-group col-12 col-md-3 text-center">
+                                    <input class="form-control" type="text" name="desc"
+                                        placeholder="{{ __('lang.desc') }}" value="{{ old('desc') }}">
+                                </div>
+                                <div class="form-group col-12 col-md-2 text-center">
+                                    {!! Form::date('from', null, ['class' => 'form-control', 'placeholder' => __('lang.from')]) !!}
+                                </div>
+                                <div class="form-group col-12 col-md-2 text-center">
+                                    {!! Form::date('to', null, ['class' => 'form-control', 'placeholder' => __('lang.to')]) !!}
                                 </div>
                                 <div class="form-group col-12 col-md-2 text-center">
                                     <button type="submit" class="btn btn-primary btn-sm"><i
@@ -45,8 +52,11 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.id') }}</strong></div>
-                            <div class="col-12 col-md-4 text-center"><strong>{{ __('lang.desc') }}</strong></div>
-                            <div class="col-12 col-md-5 text-center"><strong>{{ __('lang.total_price') }}</strong></div>
+                            <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.client') }}</strong></div>
+                            <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.desc') }}</strong></div>
+                            <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.quantity') }}</strong></div>
+                            <div class="col-12 col-md-1 text-center"><strong>{{ __('lang.total_price') }}</strong></div>
+                            <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.date') }}</strong></div>
                             <div class="col-12 col-md-2 text-center"><strong>{{ __('lang.actions') }}</strong></div>
                         </div>
                     </div>
@@ -64,18 +74,39 @@
                                         <div class="col-8 col-md-12">{{ $order->id }}</div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4 text-md-center">
+                                <div class="col-12 col-md-2 text-md-center">
+                                    <div class="row mb-2 mb-md-0">
+                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.client') }}</strong>
+                                        </div>
+                                        <div class="col-8 col-md-12">{{ $order->client->name }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-2 text-md-center">
                                     <div class="row mb-2 mb-md-0">
                                         <div class="col-4 d-block d-md-none"><strong>{{ __('lang.desc') }}</strong>
                                         </div>
                                         <div class="col-8 col-md-12">{{ $order->desc }}</div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-5 text-md-center">
+                                <div class="col-12 col-md-2 text-md-center">
+                                    <div class="row mb-2 mb-md-0">
+                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.quantity') }}</strong>
+                                        </div>
+                                        <div class="col-8 col-md-12">{{ $order->quantity }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-1 text-md-center">
                                     <div class="row mb-2 mb-md-0">
                                         <div class="col-4 d-block d-md-none"><strong>{{ __('lang.total_price') }}</strong>
                                         </div>
                                         <div class="col-8 col-md-12">{{ $order->total_price }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-2 text-md-center">
+                                    <div class="row mb-2 mb-md-0">
+                                        <div class="col-4 d-block d-md-none"><strong>{{ __('lang.date') }}</strong>
+                                        </div>
+                                        <div class="col-8 col-md-12">{{ $order->created_at }}</div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-2 text-md-center">
@@ -114,6 +145,28 @@
                         </div>
                     </div>
                 @endforelse
+                <div class="card bg-secondary">
+                    <div class="card-body">
+                        <div class="row h5">
+                            <div class="col-xs-12 col-md-6 text-md-center">
+                                <div class="row mb-2 mb-md-0">
+                                    <div class="col-4 d-block d-md-none"><strong>{{ __('lang.total') }}</strong>
+                                    </div>
+                                    <div class="col-8 col-md-12">{{ __('lang.total') }}</div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3 text-md-center">
+                                <div class="row mb-2 mb-md-0">
+                                    <div class="col-4 d-block d-md-none"><strong>{{ __('lang.total') }}</strong>
+                                    </div>
+                                    <div class="col-8 col-md-12">{{ $totalSum }}</div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3 text-md-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 {{ $orders->links() }}
             </div>
