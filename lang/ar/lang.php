@@ -179,6 +179,12 @@ return [
     'totals' => 'الإجماليات',
     'credit_balance' => 'الرصيد الدائن',
     'debit_balance' => 'الرصيد المدفوع',
+    'orders_total' => 'إجمالي الطالبات',
+    'supplies_total' => 'إجمالي التوريدات',
+    'client_payments_total' => 'إجمالي دفعات العملاء',
+    'supplier_payments_total' => 'إجمالي دفعات الموردين',
+    'partner_payments_total' => 'إجمالي دفعات الشركاء',
+    'expenses_total' => 'إجمالي المصروفات',
     'exceed_safe_balance' => 'لا يوجد رصيد كافي في الخزنة لإتمام العملية',
 
 ];

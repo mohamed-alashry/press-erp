@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SafeController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RolesController;
@@ -109,6 +110,11 @@ Route::prefix('admin')
              * Transactions Routes
              */
             Route::resource('transactions', TransactionController::class)->only(['index', 'show']);
+
+            /**
+             * Safe Routes
+             */
+            Route::get('safe', [SafeController::class, 'show'])->name('safe.show');
 
             /**
              * Roles/Permissions Routes
