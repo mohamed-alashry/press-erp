@@ -17,7 +17,7 @@ class OrderController extends Controller
     public function index()
     {
         request()->flash();
-        $query = Order::with('client');
+        $query = Order::with('client', 'colorItems.color');
 
         if (request()->filled('client_id')) {
             $query->where('client_id', request('client_id'));

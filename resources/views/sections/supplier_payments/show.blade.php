@@ -26,30 +26,21 @@
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-12 col-md-2"><strong>{{ __('lang.name') }}</strong></div>
-                                    <div class="col-12 col-md-10">{{ $supplierPayment->name }}</div>
+                                    <div class="col-12 col-md-2"><strong>{{ __('lang.supplier') }}</strong></div>
+                                    <div class="col-12 col-md-10">{{ $supplierPayment->supplier->name }}</div>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-12 col-md-2"><strong>{{ __('lang.phone') }}</strong></div>
-                                    <div class="col-12 col-md-10">{{ $supplierPayment->phone }}</div>
+                                    <div class="col-12 col-md-2"><strong>{{ __('lang.date') }}</strong></div>
+                                    <div class="col-12 col-md-10">{{ $supplierPayment->date }}</div>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-12 col-md-12"><strong>{{ __('lang.colors') }}</strong></div>
+                                    <div class="col-12 col-md-2"><strong>{{ __('lang.amount') }}</strong></div>
+                                    <div class="col-12 col-md-10">{{ $supplierPayment->amount }}</div>
                                 </div>
-                                <ul class="list-group">
-                                    @foreach ($supplierPayment->colors as $color)
-                                    @endforeach
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-12 col-md-2"><strong>{{ $color->name }}</strong></div>
-                                            <div class="col-12 col-md-10">{{ $color->pivot->price }}</div>
-                                        </div>
-                                    </li>
-                                </ul>
                             </li>
                         </ul>
                     </div>

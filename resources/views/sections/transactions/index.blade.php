@@ -88,7 +88,10 @@
                                     <div class="row mb-2 mb-md-0">
                                         <div class="col-4 d-block d-md-none"><strong>{{ __('lang.desc') }}</strong>
                                         </div>
-                                        <div class="col-8 col-md-12">{{ $transaction->desc }}</div>
+                                        <div class="col-8 col-md-12">
+                                            <a href="{{ getTransactionTypeUrl($transaction) }}" target="_blank">
+                                                {{ $transaction->desc }}</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-2 text-md-center">

@@ -26,29 +26,53 @@
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-12 col-md-2"><strong>{{ __('lang.name') }}</strong></div>
-                                    <div class="col-12 col-md-10">{{ $order->name }}</div>
+                                    <div class="col-12 col-md-2"><strong>{{ __('lang.client') }}</strong></div>
+                                    <div class="col-12 col-md-10">{{ $order->client->name }}</div>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-12 col-md-2"><strong>{{ __('lang.phone') }}</strong></div>
-                                    <div class="col-12 col-md-10">{{ $order->phone }}</div>
+                                    <div class="col-12 col-md-2"><strong>{{ __('lang.desc') }}</strong></div>
+                                    <div class="col-12 col-md-10">{{ $order->desc }}</div>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-12 col-md-12"><strong>{{ __('lang.colors') }}</strong></div>
+                                    <div class="col-12 col-md-2"><strong>{{ __('lang.quantity') }}</strong></div>
+                                    <div class="col-12 col-md-10">{{ $order->quantity }}</div>
                                 </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-12 col-md-2"><strong>{{ __('lang.total_price') }}</strong></div>
+                                    <div class="col-12 col-md-10">{{ $order->total_price }}</div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-12 col-md-2"><strong>{{ __('lang.notes') }}</strong></div>
+                                    <div class="col-12 col-md-10">{{ $order->notes }}</div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
                                 <ul class="list-group">
-                                    @foreach ($order->colors as $color)
+                                    <div class="row">
+                                        <div class="col-12 col-md-2"><strong>{{ __('lang.colors') }}</strong></div>
+                                        <div class="col-12 col-md-2"><strong>{{ __('lang.quantity') }}</strong></div>
+                                        <div class="col-12 col-md-2"><strong>{{ __('lang.price') }}</strong></div>
+                                        <div class="col-12 col-md-6"><strong>{{ __('lang.total_price') }}</strong></div>
+                                    </div>
+                                    @foreach ($order->colorItems as $colorItem)
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-12 col-md-2"><strong>{{ $colorItem->color->name }}</strong>
+                                                </div>
+                                                <div class="col-12 col-md-2">{{ $colorItem->quantity }}</div>
+                                                <div class="col-12 col-md-2">{{ $colorItem->price }}</div>
+                                                <div class="col-12 col-md-6">{{ $colorItem->total_price }}</div>
+                                            </div>
+                                        </li>
                                     @endforeach
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-12 col-md-2"><strong>{{ $color->name }}</strong></div>
-                                            <div class="col-12 col-md-10">{{ $color->pivot->price }}</div>
-                                        </div>
-                                    </li>
                                 </ul>
                             </li>
                         </ul>

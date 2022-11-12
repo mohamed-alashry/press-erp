@@ -124,7 +124,7 @@
                         @can('view transactions')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.transactions.index') }}">
-                                    <i class="nav-icon icon-people"></i> {{ __('lang.safe') }}</a>
+                                    <i class="nav-icon icon-people"></i> {{ __('lang.transactions') }}</a>
                             </li>
                         @endcan
                     </ul>

@@ -36,21 +36,21 @@
                                     <div class="col-12 col-md-10">{{ $client->phone }}</div>
                                 </div>
                             </li>
-                            <li class="list-group-item">
+                            {{-- <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-12 col-md-12"><strong>{{ __('lang.colors') }}</strong></div>
                                 </div>
                                 <ul class="list-group">
                                     @foreach ($client->colors as $color)
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-12 col-md-2"><strong>{{ $color->name }}</strong></div>
+                                                <div class="col-12 col-md-10">{{ $color->pivot->price }}</div>
+                                            </div>
+                                        </li>
                                     @endforeach
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-12 col-md-2"><strong>{{ $color->name }}</strong></div>
-                                            <div class="col-12 col-md-10">{{ $color->pivot->price }}</div>
-                                        </div>
-                                    </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <div class="card-footer">
