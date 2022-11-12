@@ -33,7 +33,7 @@ class AdminRequest extends FormRequest
         ];
 
         if ($this->isMethod('PUT')) {
-            $rules['email'] = 'required|email|unique:admins,email,' . $this->segment(4) . ',id';
+            $rules['email'] = 'required|email|unique:admins,email,' . $this->segment(3) . ',id';
             $rules['password'] = 'confirmed';
         }
 

@@ -3,9 +3,9 @@
     $dropdown = $dir == 'ltr' ? 'dropdown-menu-right' : 'dropdown-menu-left';
 @endphp
 <header class="app-header navbar">
-    <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+    {{-- <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
         <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> --}}
     <a class="navbar-brand" href="{{ route('admin.dashboard.home') }}">
         <img class="d-md-down-none" src="{{ asset($locale == 'ar' ? 'img/logo.png' : 'img/logo.png') }}" height="25"
             alt="Ashry">

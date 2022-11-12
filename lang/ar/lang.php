@@ -119,6 +119,7 @@ return [
     /**
      * ClientPayments
      */
+    'clientPayments' => 'دفعات العملاء',
     'client_payments' => 'دفعات العملاء',
     'client_payment' => 'دفعة عميل',
     'amount' => 'المبلغ',
@@ -142,6 +143,7 @@ return [
     /**
      * SupplierPayments
      */
+    'supplierPayments' => 'دفعات الموردين',
     'supplier_payments' => 'دفعات الموردين',
     'supplier_payment' => 'دفعة مورد',
 
@@ -161,6 +163,7 @@ return [
     /**
      * PartnerPayments
      */
+    'partnerPayments' => 'دفعات الشركاء',
     'partner_payments' => 'دفعات الشركاء',
     'partner_payment' => 'دفعة شريك',
 
@@ -177,8 +180,10 @@ return [
     'deduct' => 'خصم',
     'total' => 'الإجمالي',
     'totals' => 'الإجماليات',
+    'rest' => 'الباقي',
     'credit_balance' => 'الرصيد الدائن',
     'debit_balance' => 'الرصيد المدفوع',
+    'rest_balance' => 'الرصيد الباقي',
     'orders_total' => 'إجمالي الطالبات',
     'supplies_total' => 'إجمالي التوريدات',
     'client_payments_total' => 'إجمالي دفعات العملاء',

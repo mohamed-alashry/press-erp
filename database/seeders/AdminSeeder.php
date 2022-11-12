@@ -18,13 +18,25 @@ class AdminSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         Admin::truncate();
 
-        Admin::create([
+        $admins = [[
             'name' => 'admin',
             'email' => 'admin@email.com',
-            'password' => 'password',
+            'password' => bcrypt('password'),
             'status' => 1,
-            'position' => 1
-        ]);
+            'position' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ], [
+            'name' => 'dahab_print',
+            'email' => 'dahab@email.com',
+            'password' => bcrypt('222222'),
+            'status' => 1,
+            'position' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]];
+
+        Admin::insert($admins);
 
         Schema::enableForeignKeyConstraints();
     }

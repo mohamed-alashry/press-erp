@@ -26,6 +26,8 @@ class PermissionSeeder extends Seeder
 
         $admin = Admin::find(1);
         $admin->assignRole($role);
+        $admin = Admin::find(2);
+        $admin->assignRole($role);
     }
 
     private function updatePermissions()

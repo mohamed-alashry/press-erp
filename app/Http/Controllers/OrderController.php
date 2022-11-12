@@ -64,7 +64,7 @@ class OrderController extends Controller
         foreach (request('colors') as $colorId => $colorItem) {
             $colorItem['color_id'] = $colorId;
             $colorItem['total_price'] = $itemTotalPrice = $colorItem['quantity'] * $colorItem['price'];
-            $totalPrice += $itemTotalPrice;
+            $totalPrice += $itemTotalPrice * ($order->quantity / 1000);
             $order->colorItems()->create($colorItem);
         }
         $order->update(['total_price' => $totalPrice]);
@@ -114,7 +114,7 @@ class OrderController extends Controller
         foreach (request('colors') as $colorId => $colorItem) {
             $colorItem['color_id'] = $colorId;
             $colorItem['total_price'] = $itemTotalPrice = $colorItem['quantity'] * $colorItem['price'];
-            $totalPrice += $itemTotalPrice;
+            $totalPrice += $itemTotalPrice * ($order->quantity / 1000);
             $order->colorItems()->where('color_id', $colorId)->update($colorItem);
         }
         $order->update(['total_price' => $totalPrice]);

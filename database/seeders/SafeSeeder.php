@@ -19,7 +19,7 @@ class SafeSeeder extends Seeder
         Safe::truncate();
 
         Safe::create([
-            'balance' => 0,
+            'balance' => 50000,
         ]);
 
         Schema::enableForeignKeyConstraints();
