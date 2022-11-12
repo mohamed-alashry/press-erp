@@ -17,7 +17,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>NamaaIT</title>
+    <title>PressERP</title>
     <!-- Icons-->
     <link href="{{ asset('vendors/@coreui/icons/css/coreui-icons.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendors/flag-icon-css/css/flag-icon.min.css') }}" rel="stylesheet">
@@ -51,7 +51,7 @@
                     <div class="card text-white bg-white">
                         <div class="card-body align-items-center d-flex justify-content-center">
                             <div>
-                                <img class="login-logo" src="{{ asset('img/logo-almotakamel.jpg') }}">
+                                <img class="login-logo" src="{{ asset('img/logo.png') }}">
                             </div>
                         </div>
                     </div>

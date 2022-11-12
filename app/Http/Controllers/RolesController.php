@@ -71,7 +71,7 @@ class RolesController extends Controller
     public function show(Role $role)
     {
         // if this role is [super-admin], then redirect to 403
-        // because this role [super_admin], just for NamaaIT User
+        // because this role [super_admin], just for Ashry User
         if ($role->id === 1 && auth()->user()->id !== 1) {
             return abort(403, $message = "you don't have permission to access this page");
         }
@@ -96,7 +96,7 @@ class RolesController extends Controller
     public function edit(Role $role)
     {
         // if this role is [super-admin], then redirect to 403
-        // because this role [super_admin], just for NamaaIT User
+        // because this role [super_admin], just for Ashry User
         if ($role->id === 1 && auth()->user()->id !== 1) {
             return abort(403, $message = "you don't have permission to access this page");
         }
@@ -122,7 +122,7 @@ class RolesController extends Controller
     public function update(RoleRequest $request, Role $role)
     {
         // if this role is [super-admin], then redirect to 403
-        // because this role [super_admin], just for NamaaIT User
+        // because this role [super_admin], just for Ashry User
         if ($role->id === 1 && auth()->user()->id !== 1) {
             return abort(403, $message = "you don't have permission to access this page");
         }
@@ -142,7 +142,7 @@ class RolesController extends Controller
     public function destroy(Role $role)
     {
         // if this role is [super-admin], then redirect to 403
-        // because this role [super_admin], just for NamaaIT User
+        // because this role [super_admin], just for Ashry User
         if ($role->id === 1 && auth()->user()->id !== 1) {
             return abort(403, $message = "you don't have permission to access this page");
         }

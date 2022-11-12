@@ -11,7 +11,7 @@
                         <div class="card mt-5">
 
                             <div class="card-body text-center">
-                                <img src="{{ asset('img/logo-almotakamel.jpg') }}" class="img-fluid ">
+                                <img src="{{ asset('img/logo.png') }}" class="img-fluid ">
 
                             </div>
                         </div>

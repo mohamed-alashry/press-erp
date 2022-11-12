@@ -7,11 +7,10 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="{{ route('admin.dashboard.home') }}">
-        <img class="d-md-down-none"
-            src="{{ asset($locale == 'ar' ? 'img/logo-almotakamel.jpg' : 'img/logo-almotakamel.jpg') }}" height="25"
-            alt="NamaaIT">
-        {{-- <img class="d-md-down-none" src="{{ asset($locale == 'ar' ? 'img/logo-dash-rtl.png' : 'img/logo-dash-ltr.png') }}" height="25" alt="NamaaIT"> --}}
-        <img class="d-lg-none" src="{{ asset('img/logo-almotakamel.jpg') }}" height="30" alt="NamaaIT">
+        <img class="d-md-down-none" src="{{ asset($locale == 'ar' ? 'img/logo.png' : 'img/logo.png') }}" height="25"
+            alt="Ashry">
+        {{-- <img class="d-md-down-none" src="{{ asset($locale == 'ar' ? 'img/logo-dash-rtl.png' : 'img/logo-dash-ltr.png') }}" height="25" alt="Ashry"> --}}
+        <img class="d-lg-none" src="{{ asset('img/logo.png') }}" height="30" alt="Ashry">
     </a>
 
     {{-- URLs --}}
@@ -22,7 +21,7 @@
     </ul>
 
     <ul class="nav navbar-nav {{ $nav }}">
-        <li class="nav-item d-md-down-none">
+        {{-- <li class="nav-item d-md-down-none">
             @php
                 $NotLocale = $locale == 'ar' ? 'en' : 'ar';
             @endphp
@@ -31,7 +30,7 @@
                 <i class="icon-globe"></i>
                 {{ __('lang.' . $NotLocale . '-inverse') }}
             </a>
-        </li>
+        </li> --}}
         {{-- <li class="nav-item dropdown d-md-down-none">
       <a class="nav-link px-2" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <i class="fa fa-language"></i> {{ __('lang.'. $locale) }}</a>
